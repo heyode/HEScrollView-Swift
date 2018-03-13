@@ -5,7 +5,7 @@
 - 根据业务需要自定义UIPageControl的图片
 
 ## HEScrollView的使用
-### 导入HEScrollView.h和HEScrollView.m两个文件到工程，在控制器中创建HEScrollView
+
 ```
 let  scrollView = HEScrollView.init(frame: view.bounds)
 ```
