@@ -18,8 +18,17 @@ class HEScrollView: UIView {
             refreshViewContent()
         }
     }
-//    var pageImgs = [UIImage]()
-//    var pageLightImgs = [UIImage]()
+    var pageImgs = [UIImage](){
+        didSet{
+            self.pageControl?.setValue(pageImgs, forKey: "_pageImages")
+        }
+    }
+    
+    var pageLightImgs = [UIImage](){
+        didSet{
+            self.pageControl?.setValue(pageLightImgs, forKey: "_currentPageImages")
+        }
+    }
     
 //    var urls = [URL](){
 //        didSet{
@@ -71,13 +80,14 @@ class HEScrollView: UIView {
             imageV?.frame = isVertical ? imageVerticalFrame : imageHorizontalSize
         }
         let  pageControlH : CGFloat = 20;
-        let  pageControlW : CGFloat = self.scrollView!.frame.size.width;
+        let  pageControlW : CGFloat = self.scrollView!.frame.size.width - 20;
         let  pageControlX : CGFloat = (self.scrollView!.frame.size.width - pageControlW)/2;
         let  pageControlY : CGFloat = self.scrollView!.frame.size.height - pageControlH - 10;
         
         self.pageControl?.frame = CGRect.init(x: pageControlX, y: pageControlY, width: pageControlW, height: pageControlH);
-        self.pageControl?.pageIndicatorTintColor = UIColor.white
-        self.pageControl?.currentPageIndicatorTintColor = UIColor.gray
+        
+//        self.pageControl?.pageIndicatorTintColor = UIColor.white
+//        self.pageControl?.currentPageIndicatorTintColor = UIColor.gray
         self.refreshViewContent()
 
     }

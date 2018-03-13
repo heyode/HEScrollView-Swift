@@ -29,11 +29,12 @@ class ViewController: UIViewController {
         
         // 设置图片
         scrollView.images = images
+        // 是否纵向滚动
 //        scrollView.isVertical = true
 //        // 设置页码高亮背景图
-//        scrollView.pageLightImgs = pageCurrentImgs
-//        // 设置页码普通背景图
-//        scrollView.pageImgs = pageImgs
+        scrollView.pageLightImgs = pageCurrentImgs
+        // 设置页码普通背景图
+        scrollView.pageImgs = pageImgs
     }
 
     override func didReceiveMemoryWarning() {
