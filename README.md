@@ -7,23 +7,22 @@
 ## HEScrollView的使用
 ### 导入HEScrollView.h和HEScrollView.m两个文件到工程，在控制器中创建HEScrollView
 ```
-HEScrollView *view = [[HEScrollView alloc] initWithFrame:self.view.bounds];
+let  scrollView = HEScrollView.init(frame: view.bounds)
 ```
 ### 设置要轮播的图片数组images
 ```
-view.images = images;
+scrollView.images = images
 ```
 
 ### 设置页码的普通状态图
 ```
-view.pageImgs = pageImgs;
+scrollView.pageImgs = pageImgs
 ```
 
 ### 设置页码的高亮状态图
 ```
- view.pageLightImgs = pageCurrentImgs;
+scrollView.pageLightImgs = pageCurrentImgs
 ```
 ## 效果图
 ![image](https://github.com/heyode/HEScrollView/blob/master/myProject.gif)
-## 致谢 
-感谢MJ大神提供的思路
+
