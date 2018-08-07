@@ -37,6 +37,7 @@ class HEScrollView: UIView {
 //           self.refreshViewContent()
 //        }
 //    }
+    let tagBase = 700
     let  COMMONMARGIN = 10
     let  imageViewCount = 3
     let  ANIMATIONTIME = 5.0
@@ -145,7 +146,7 @@ class HEScrollView: UIView {
             imgV.image = images[index!]
 //            imgV.kf.setImage(with: urls[index!])
             
-            imgV.tag = index!
+            imgV.tag = index! + tagBase
           
         }
         let verticalPointOffset = CGPoint.init(x: 0, y: (scrollView?.frame.size.height)!)
@@ -178,7 +179,7 @@ extension HEScrollView : UIScrollViewDelegate{
             let horizontalDistance = abs(view.frame.origin.x - (self.scrollView?.contentOffset.x)!)
             if (isVertical ? verticalDistance : horizontalDistance) < minDistance {
                 minDistance = isVertical ? verticalDistance : horizontalDistance
-                currentPageNum = view.tag
+                currentPageNum = view.tag - tagBase
             }
         }
       
