@@ -10,6 +10,7 @@ import UIKit
 
 class HEScrollView: UIView {
 
+    var clickImgAtIndexCallBack : ((_ index:Int)->Void)?
     var images = [UIImage](){
         didSet{
             pageControl?.numberOfPages = images.count
@@ -106,6 +107,8 @@ class HEScrollView: UIView {
         for _ in 1...imageViewCount {
             let imageV = UIImageView.init()
            imageV.contentMode = .scaleToFill
+            let tap = UITapGestureRecognizer.init(target: self, action: #selector(self.imgClick(_:)))
+            imageV.addGestureRecognizer(tap)
             scrollView?.addSubview(imageV)
             
         }
@@ -115,6 +118,14 @@ class HEScrollView: UIView {
         self.addSubview(pageControl!)
         pageControl?.isHidden = isHidePagControl
         self.addTimer()
+    }
+    @objc func imgClick(_ tap:UITapGestureRecognizer)  {
+        let currentImg = tap.view as! UIImageView
+        let index = currentImg.tag - tagBase
+        if let blcok = clickImgAtIndexCallBack{
+            blcok(index)
+        }
+      
     }
     func refreshViewContent() {
         pageControl?.currentPage =  currentPageNum
